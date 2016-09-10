@@ -26,7 +26,7 @@ public class OI {
 
 	public double getShooterY() {
 		if (!(shooterStick == null)) {
-			return -deadZoneMod(shooterStick.getY());
+			return deadZoneMod(shooterStick.getY());
 		} else {
 			return 0;
 		}
