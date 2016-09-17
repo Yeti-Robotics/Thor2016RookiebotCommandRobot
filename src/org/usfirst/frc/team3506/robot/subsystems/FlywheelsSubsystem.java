@@ -24,6 +24,10 @@ public class FlywheelsSubsystem extends Subsystem {
 		flywheels.set(RobotMap.FLYWHEELS_TALON_SPEED);
 	}
 	
+	public void stopFlywheels() {
+		flywheels.set(0);
+	}
+	
     public void initDefaultCommand() {}
 }
 

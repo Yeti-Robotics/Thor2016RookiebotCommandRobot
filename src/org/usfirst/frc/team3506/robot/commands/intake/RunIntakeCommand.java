@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3506.robot.commands.flywheels;
+package org.usfirst.frc.team3506.robot.commands.intake;
 
 import org.usfirst.frc.team3506.robot.Robot;
 
@@ -7,26 +7,28 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class StartFlywheelsCommand extends Command {
+public class RunIntakeCommand extends Command {
 
-    public StartFlywheelsCommand() {
-    	requires(Robot.flywheels);
+    public RunIntakeCommand() {
+        requires(Robot.intake);
     }
 
     protected void initialize() {
+    	Robot.intake.runIntake();
     }
 
     protected void execute() {
-    	Robot.flywheels.runFlywheels();
     }
 
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     protected void end() {
+    	Robot.intake.stopIntake();
     }
 
     protected void interrupted() {
+    	end();
     }
 }

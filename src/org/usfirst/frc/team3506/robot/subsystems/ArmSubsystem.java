@@ -24,8 +24,8 @@ public class ArmSubsystem extends Subsystem {
 	
 	//Positive is down (like joystick up == aircraft down)
 	public void moveArmAtSpeed(double speed) {
-		left.set(speed);
-		right.set(speed);
+		left.set(speed * RobotMap.ARM_MOD);
+		right.set(speed * RobotMap.ARM_MOD);
 	}
 	
     public void initDefaultCommand() {

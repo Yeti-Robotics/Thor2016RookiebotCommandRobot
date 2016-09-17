@@ -1,8 +1,14 @@
 package org.usfirst.frc.team3506.robot;
 
+import org.usfirst.frc.team3506.robot.commandgroups.FireBallCommandGroup;
 import org.usfirst.frc.team3506.robot.commands.drivetrain.SetControlTypeToArcadeCommand;
 import org.usfirst.frc.team3506.robot.commands.drivetrain.SetControlTypeToTankCommand;
 import org.usfirst.frc.team3506.robot.commands.drivetrain.ToggleRobotFrontCommand;
+import org.usfirst.frc.team3506.robot.commands.flywheels.StartFlywheelsCommand;
+import org.usfirst.frc.team3506.robot.commands.hammer.FireHammerCommandGroup;
+import org.usfirst.frc.team3506.robot.commands.hammer.ThrowHammerDownCommand;
+import org.usfirst.frc.team3506.robot.commands.hammer.ThrowHammerUpCommand;
+import org.usfirst.frc.team3506.robot.commands.intake.RunIntakeCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -22,6 +28,13 @@ public class OI {
 		setJoystickButtonWhenPressedCommand(rightStick, 1, new ToggleRobotFrontCommand());
 		setJoystickButtonWhenPressedCommand(rightStick, 4, new SetControlTypeToTankCommand());
 		setJoystickButtonWhenPressedCommand(rightStick, 5, new SetControlTypeToArcadeCommand());
+		
+		//Shooter stick
+		setJoystickButtonWhilePressedCommand(shooterStick, 2, new RunIntakeCommand());
+		setJoystickButtonWhenPressedCommand(shooterStick, 4, new ThrowHammerDownCommand());
+		setJoystickButtonWhenPressedCommand(shooterStick, 5, new ThrowHammerUpCommand());
+		setJoystickButtonWhenPressedCommand(shooterStick, 1, new FireBallCommandGroup());
+		setJoystickButtonWhilePressedCommand(shooterStick, 3, new StartFlywheelsCommand());
 	}
 
 	public double getShooterY() {
@@ -48,9 +61,10 @@ public class OI {
 		}
 	}
 
+	//The Y's are inverted in here because up = positive makes sense
 	public double getLeftY() {
 		if (!(rightStick == null)) {
-			return deadZoneMod(rightStick.getY());
+			return -deadZoneMod(rightStick.getY());
 		} else {
 			return 0;
 		}
@@ -58,7 +72,7 @@ public class OI {
 
 	public double getRightY() {
 		if (!(leftStick == null)) {
-			return deadZoneMod(leftStick.getY());
+			return -deadZoneMod(leftStick.getY());
 		} else {
 			return 0;
 		}
