@@ -11,6 +11,7 @@ public class RunIntakeCommand extends Command {
 
     public RunIntakeCommand() {
         requires(Robot.intake);
+        requires(Robot.flywheels);
     }
 
     protected void initialize() {
@@ -18,6 +19,7 @@ public class RunIntakeCommand extends Command {
     }
 
     protected void execute() {
+    	Robot.flywheels.runFlywheelsForIntake();
     }
 
     protected boolean isFinished() {
@@ -26,6 +28,7 @@ public class RunIntakeCommand extends Command {
 
     protected void end() {
     	Robot.intake.stopIntake();
+    	Robot.flywheels.stopFlywheels();
     }
 
     protected void interrupted() {

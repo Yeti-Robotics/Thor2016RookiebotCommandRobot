@@ -8,6 +8,8 @@ import org.usfirst.frc.team3506.robot.commands.flywheels.StartFlywheelsCommand;
 import org.usfirst.frc.team3506.robot.commands.hammer.FireHammerCommandGroup;
 import org.usfirst.frc.team3506.robot.commands.hammer.ThrowHammerDownCommand;
 import org.usfirst.frc.team3506.robot.commands.hammer.ThrowHammerUpCommand;
+import org.usfirst.frc.team3506.robot.commands.intake.ExtendIntakePiston;
+import org.usfirst.frc.team3506.robot.commands.intake.RetractIntakePiston;
 import org.usfirst.frc.team3506.robot.commands.intake.RunIntakeCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -31,10 +33,9 @@ public class OI {
 		
 		//Shooter stick
 		setJoystickButtonWhilePressedCommand(shooterStick, 2, new RunIntakeCommand());
-		setJoystickButtonWhenPressedCommand(shooterStick, 4, new ThrowHammerDownCommand());
-		setJoystickButtonWhenPressedCommand(shooterStick, 5, new ThrowHammerUpCommand());
+		setJoystickButtonWhenPressedCommand(shooterStick, 4, new RetractIntakePiston());
+		setJoystickButtonWhenPressedCommand(shooterStick, 5, new ExtendIntakePiston());
 		setJoystickButtonWhenPressedCommand(shooterStick, 1, new FireBallCommandGroup());
-		setJoystickButtonWhilePressedCommand(shooterStick, 3, new StartFlywheelsCommand());
 	}
 
 	public double getShooterY() {

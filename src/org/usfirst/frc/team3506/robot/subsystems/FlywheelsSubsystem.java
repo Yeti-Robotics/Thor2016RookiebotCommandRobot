@@ -21,7 +21,11 @@ public class FlywheelsSubsystem extends Subsystem {
 	
 	//If this goes the wrong direction, change the setInverted! Don't use negative!
 	public void runFlywheels() {
-		flywheels.set(RobotMap.FLYWHEELS_TALON_SPEED);
+		flywheels.set(RobotMap.FLYWHEELS_SHOOT_SPEED);
+	}
+	
+	public void runFlywheelsForIntake() {
+		flywheels.set(RobotMap.FLYWHEELS_INTAKE_SPEED);
 	}
 	
 	public void stopFlywheels() {

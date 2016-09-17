@@ -1,26 +1,23 @@
-package org.usfirst.frc.team3506.robot.commands.hammer;
+package org.usfirst.frc.team3506.robot.commands.intake;
 
 import org.usfirst.frc.team3506.robot.Robot;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ThrowHammerUpCommand extends Command {
+public class RetractIntakePiston extends Command {
 
-    public ThrowHammerUpCommand() {
-    	requires(Robot.hammer);
+    public RetractIntakePiston() {
+        requires(Robot.intake);
     }
 
     protected void initialize() {
+    	Robot.intake.retractIntakePiston();
     }
 
     protected void execute() {
-    	if (Robot.intake.getIntakePistonState() == Value.kReverse) {
-    		Robot.hammer.hammerUp();
-    	}
     }
 
     protected boolean isFinished() {

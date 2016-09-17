@@ -27,7 +27,8 @@ public class RobotMap {
 	
 	//Flywheels constants
 	public static final int FLYWHEELS_TALON_PORT = 0;
-	public static final double FLYWHEELS_TALON_SPEED = 1;
+	public static final double FLYWHEELS_SHOOT_SPEED = 1;
+	public static final double FLYWHEELS_INTAKE_SPEED = 0.15;
 	public static final double FLYWHEELS_TIMETOFULLSPEED = 1;
 	
 	//Intake constants
@@ -35,4 +36,6 @@ public class RobotMap {
 	public static final int INTAKE_ROLLER_BAR_SPIKE_PORT = 2;
 	public static final Value RUN_INTAKE_BELT_VALUE = Value.kReverse;
 	public static final Value RUN_INTAKE_ROLLER_BAR_VALUE = Value.kReverse;
+	public static final int INTAKE_PISTON_FORWARD = 2;
+	public static final int INTAKE_PISTON_REVERSE = 3;
 }

@@ -17,7 +17,6 @@ public class FireBallCommandGroup extends CommandGroup {
     	addSequential(new StartFlywheelsCommand());
     	addSequential(new WaitCommand(RobotMap.FLYWHEELS_TIMETOFULLSPEED));
     	addSequential(new FireHammerCommandGroup());
-    	addSequential(new WaitCommand(0.5));
     	addSequential(new StopFlywheelsCommand());
     }
 }

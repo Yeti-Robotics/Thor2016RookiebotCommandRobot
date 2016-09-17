@@ -18,6 +18,7 @@ public class ArmSubsystem extends Subsystem {
 		left = new Talon(RobotMap.LEFT_ARM_TALON_PORT);
 		right = new Talon(RobotMap.RIGHT_ARM_TALON_PORT);
 		
+		
 		//We don't know about which needs to be inverted (one does), but for now we'll assume the right
 		right.setInverted(true);
 	}
