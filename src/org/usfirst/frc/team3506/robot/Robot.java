@@ -23,6 +23,8 @@ public class Robot extends IterativeRobot {
 		hammer = new HammerSubsystem();
 		flywheels = new FlywheelsSubsystem();
 		oi = new OI();
+		//>:|
+		//This will run fine, don't worry about it *thumbs up emoji*
 	}
 
 	public void disabledInit() {

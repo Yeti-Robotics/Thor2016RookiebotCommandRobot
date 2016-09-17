@@ -4,6 +4,7 @@ import org.usfirst.frc.team3506.robot.RobotMap;
 import org.usfirst.frc.team3506.robot.commands.arm.UserDriveArmCommand;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -11,22 +12,20 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class ArmSubsystem extends Subsystem {
 	
-	private CANTalon mainLeft, followerRight;
+	private Talon left, right;
     
 	public ArmSubsystem() {
-		mainLeft = new CANTalon(RobotMap.LEFT_ARM_CANTALON_ID);
-		followerRight = new CANTalon(RobotMap.RIGHT_ARM_CANTALON_ID);
-		
-		followerRight.changeControlMode(CANTalon.TalonControlMode.Follower);
-		followerRight.set(RobotMap.LEFT_ARM_CANTALON_ID);
+		left = new Talon(RobotMap.LEFT_ARM_TALON_PORT);
+		right = new Talon(RobotMap.RIGHT_ARM_TALON_PORT);
 		
 		//We don't know about which needs to be inverted (one does), but for now we'll assume the right
-		followerRight.setInverted(true);
+		right.setInverted(true);
 	}
 	
 	//Positive is down (like joystick up == aircraft down)
 	public void moveArmAtSpeed(double speed) {
-		mainLeft.set(speed);
+		left.set(speed);
+		right.set(speed);
 	}
 	
     public void initDefaultCommand() {

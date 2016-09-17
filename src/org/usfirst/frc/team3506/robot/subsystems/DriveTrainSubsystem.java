@@ -5,6 +5,7 @@ import org.usfirst.frc.team3506.robot.commands.drivetrain.UserDriveCommand;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -12,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class DriveTrainSubsystem extends Subsystem {
 
-	private CANTalon left1, left2, right1, right2;
+	private Talon leftFront, leftBack, rightFront, rightBack;
 	private RobotDrive robotDrive;
 	private ControlType controlType;
 	private Front front;
@@ -26,17 +27,12 @@ public class DriveTrainSubsystem extends Subsystem {
 	}
 
 	public DriveTrainSubsystem() {
-		left1 = new CANTalon(RobotMap.LEFT1_CANTALON_ID);
-		left2 = new CANTalon(RobotMap.LEFT2_CANTALON_ID);
-		right1 = new CANTalon(RobotMap.RIGHT1_CANTALON_ID);
-		right2 = new CANTalon(RobotMap.RIGHT2_CANTALON_ID);
+		leftFront = new Talon(RobotMap.LEFT_FRONT_TALON_PORT);
+		leftBack = new Talon(RobotMap.LEFT_BACK_TALON_PORT);
+		rightFront = new Talon(RobotMap.RIGHT_FRONT_TALON_PORT);
+		rightBack = new Talon(RobotMap.RIGHT_BACK_TALON_PORT);
 
-		left2.changeControlMode(CANTalon.TalonControlMode.Follower);
-		left2.set(RobotMap.LEFT1_CANTALON_ID);
-		right2.changeControlMode(CANTalon.TalonControlMode.Follower);
-		right2.set(RobotMap.RIGHT2_CANTALON_ID);
-
-		robotDrive = new RobotDrive(left1, right1);
+		robotDrive = new RobotDrive(leftFront, leftBack, rightFront, rightBack);
 
 		front = Front.SHOOTER;
 		controlType = ControlType.TANK;
@@ -72,11 +68,13 @@ public class DriveTrainSubsystem extends Subsystem {
 	}
 
 	public void moveLeftTrain(double speed) {
-		left1.set(speed);
+		leftFront.set(speed);
+		leftBack.set(speed);
 	}
 
 	public void moveRightTrain(double speed) {
-		right1.set(speed);
+		rightFront.set(speed);
+		rightBack.set(speed);
 	}
 
 	public void initDefaultCommand() {

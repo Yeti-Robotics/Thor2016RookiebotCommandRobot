@@ -3,6 +3,7 @@ package org.usfirst.frc.team3506.robot.subsystems;
 import org.usfirst.frc.team3506.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -10,10 +11,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class FlywheelsSubsystem extends Subsystem {
     
-	private CANTalon flywheels;
+	private Talon flywheels;
 	
 	public FlywheelsSubsystem() {
-		flywheels = new CANTalon(RobotMap.FLYWHEELS_CANTALON_ID);
+		flywheels = new Talon(RobotMap.FLYWHEELS_TALON_PORT);
 		
 		flywheels.setInverted(true);
 	}
