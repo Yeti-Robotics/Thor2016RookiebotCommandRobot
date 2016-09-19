@@ -12,10 +12,10 @@ public class RobotMap {
 	//Drive train constants
 	public static final int LEFT_1_TALON_PORT = 8;
 	public static final int LEFT_2_TALON_PORT = 7;
-	public static final int LEFT_3_TALON_PORT = 0;
+	public static final int LEFT_3_TALON_PORT = 4;
 	public static final int RIGHT_1_TALON_PORT = 3;
 	public static final int RIGHT_2_TALON_PORT = 2;
-	public static final int RIGHT_3_TALON_PORT = 0;
+	public static final int RIGHT_3_TALON_PORT = 5;
 	
 	//Arm constants
 	public static final int LEFT_ARM_TALON_PORT = 1;
