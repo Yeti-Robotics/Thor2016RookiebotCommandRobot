@@ -13,8 +13,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class DriveTrainSubsystem extends Subsystem {
 
-	private Talon leftFront, leftBack, left3, rightFront, rightBack, right3;
-	private RobotDrive robotDrive;
+	private Talon left1, left2, left3, right1, right2, right3;
 	private ControlType controlType;
 	private Front front;
 
@@ -27,14 +26,12 @@ public class DriveTrainSubsystem extends Subsystem {
 	}
 
 	public DriveTrainSubsystem() {
-		leftFront = new Talon(RobotMap.LEFT_FRONT_TALON_PORT);
-		leftBack = new Talon(RobotMap.LEFT_BACK_TALON_PORT);
+		left1 = new Talon(RobotMap.LEFT_1_TALON_PORT);
+		left2 = new Talon(RobotMap.LEFT_2_TALON_PORT);
 		left3 = new Talon(RobotMap.LEFT_3_TALON_PORT);
-		rightFront = new Talon(RobotMap.RIGHT_FRONT_TALON_PORT);
-		rightBack = new Talon(RobotMap.RIGHT_BACK_TALON_PORT);
+		right1 = new Talon(RobotMap.RIGHT_1_TALON_PORT);
+		right2 = new Talon(RobotMap.RIGHT_2_TALON_PORT);
 		right3 = new Talon(RobotMap.RIGHT_3_TALON_PORT);
-
-		robotDrive = new RobotDrive(leftFront, leftBack, rightFront, rightBack);
 
 		front = Front.SHOOTER;
 		controlType = ControlType.TANK;
@@ -57,13 +54,11 @@ public class DriveTrainSubsystem extends Subsystem {
 	}
 
 	public void tankDrive(double left, double right) {
-		// robotDrive.tankDrive(left, right);
 		moveLeftTrain(left);
 		moveRightTrain(right);
 	}
 
 	public void arcadeDrive(double moveValue, double rotateValue) {
-//		robotDrive.arcadeDrive(moveValue, rotateValue);
 		double leftMotorSpeed, rightMotorSpeed;
 
 		if (moveValue > 0.0) {
@@ -94,14 +89,14 @@ public class DriveTrainSubsystem extends Subsystem {
 	}
 
 	public void moveLeftTrain(double speed) {
-		leftFront.set(speed);
-		leftBack.set(speed);
+		left1.set(speed);
+		left2.set(speed);
 		left3.set(speed);
 	}
 
 	public void moveRightTrain(double speed) {
-		rightFront.set(speed);
-		rightBack.set(speed);
+		right1.set(speed);
+		right2.set(speed);
 		right3.set(speed);
 	}
 
