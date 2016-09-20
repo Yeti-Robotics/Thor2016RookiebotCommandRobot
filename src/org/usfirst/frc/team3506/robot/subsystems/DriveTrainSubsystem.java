@@ -33,6 +33,10 @@ public class DriveTrainSubsystem extends Subsystem {
 		right2 = new Talon(RobotMap.RIGHT_2_TALON_PORT);
 		right3 = new Talon(RobotMap.RIGHT_3_TALON_PORT);
 
+		right1.setInverted(true);
+		right2.setInverted(true);
+		right3.setInverted(true);
+		
 		front = Front.SHOOTER;
 		controlType = ControlType.TANK;
 	}

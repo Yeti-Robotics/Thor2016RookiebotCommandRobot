@@ -16,7 +16,7 @@ public class FlywheelsSubsystem extends Subsystem {
 	public FlywheelsSubsystem() {
 		flywheels = new Talon(RobotMap.FLYWHEELS_TALON_PORT);
 		
-		flywheels.setInverted(true);
+		flywheels.setInverted(false);
 	}
 	
 	//If this goes the wrong direction, change the setInverted! Don't use negative!
