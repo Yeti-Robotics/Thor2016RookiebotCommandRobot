@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ExtendIntakePiston extends Command {
 
     public ExtendIntakePiston() {
-        requires(Robot.intake);
     }
 
     protected void initialize() {
