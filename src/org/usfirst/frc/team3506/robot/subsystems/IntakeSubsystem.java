@@ -12,23 +12,27 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class IntakeSubsystem extends Subsystem {
 	
-	private Relay beltTalon, rollerBarTalon;
+	private Relay beltSpike, rollerBarSpike;
 	private DoubleSolenoid intakePiston;
     
 	public IntakeSubsystem() {
-		beltTalon = new Relay(RobotMap.INTAKE_BELT_SPIKE_PORT);
-		rollerBarTalon = new Relay(RobotMap.INTAKE_ROLLER_BAR_SPIKE_PORT);
+		beltSpike = new Relay(RobotMap.INTAKE_BELT_SPIKE_PORT);
+		rollerBarSpike = new Relay(RobotMap.INTAKE_ROLLER_BAR_SPIKE_PORT);
 		intakePiston = new DoubleSolenoid(RobotMap.INTAKE_PISTON_FORWARD, RobotMap.INTAKE_PISTON_REVERSE);
 	}
 	
 	public void runIntake() {
-		beltTalon.set(RobotMap.RUN_INTAKE_BELT_VALUE);
-		rollerBarTalon.set(RobotMap.RUN_INTAKE_ROLLER_BAR_VALUE);
+		beltSpike.set(RobotMap.RUN_INTAKE_BELT_VALUE);
+		rollerBarSpike.set(RobotMap.RUN_INTAKE_ROLLER_BAR_VALUE);
+	}
+	public void reverseIntake(){
+		beltSpike.set(RobotMap.REVERSE_RUN_INTAKE_BELT_VALUE);
+		rollerBarSpike.set(RobotMap.REVERSE_RUN_INTAKE_ROLLER_BAR_VALUE);
 	}
 	
 	public void stopIntake() {
-		beltTalon.set(Relay.Value.kOff);
-		rollerBarTalon.set(Relay.Value.kOff);
+		beltSpike.set(Relay.Value.kOff);
+		rollerBarSpike.set(Relay.Value.kOff);
 	}
 	
 	public void extendIntakePiston() {

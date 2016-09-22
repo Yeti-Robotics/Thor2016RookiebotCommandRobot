@@ -38,6 +38,8 @@ public class RobotMap {
 	public static final int INTAKE_ROLLER_BAR_SPIKE_PORT = 2;
 	public static final Value RUN_INTAKE_BELT_VALUE = Value.kReverse;
 	public static final Value RUN_INTAKE_ROLLER_BAR_VALUE = Value.kReverse;
+	public static final Value REVERSE_RUN_INTAKE_BELT_VALUE = Value.kForward;
+	public static final Value REVERSE_RUN_INTAKE_ROLLER_BAR_VALUE = Value.kForward;
 	public static final int INTAKE_PISTON_FORWARD = 2;
 	public static final int INTAKE_PISTON_REVERSE = 3;
 }

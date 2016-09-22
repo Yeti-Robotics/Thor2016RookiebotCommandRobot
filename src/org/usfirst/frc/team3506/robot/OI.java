@@ -10,6 +10,7 @@ import org.usfirst.frc.team3506.robot.commands.hammer.ThrowHammerDownCommand;
 import org.usfirst.frc.team3506.robot.commands.hammer.ThrowHammerUpCommand;
 import org.usfirst.frc.team3506.robot.commands.intake.ExtendIntakePiston;
 import org.usfirst.frc.team3506.robot.commands.intake.RetractIntakePiston;
+import org.usfirst.frc.team3506.robot.commands.intake.ReverseIntakeCommand;
 import org.usfirst.frc.team3506.robot.commands.intake.RunIntakeCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -36,6 +37,7 @@ public class OI {
 		setJoystickButtonWhenPressedCommand(shooterStick, 4, new RetractIntakePiston());
 		setJoystickButtonWhenPressedCommand(shooterStick, 5, new ExtendIntakePiston());
 		setJoystickButtonWhenPressedCommand(shooterStick, 1, new FireBallCommandGroup());
+		setJoystickButtonWhilePressedCommand(shooterStick, 3, new ReverseIntakeCommand());
 	}
 
 	public double getShooterY() {

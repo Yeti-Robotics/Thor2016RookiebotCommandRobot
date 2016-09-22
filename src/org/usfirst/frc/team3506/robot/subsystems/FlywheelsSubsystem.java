@@ -10,28 +10,33 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class FlywheelsSubsystem extends Subsystem {
-    
+
 	private Talon flywheels;
-	
+
 	public FlywheelsSubsystem() {
 		flywheels = new Talon(RobotMap.FLYWHEELS_TALON_PORT);
-		
-		flywheels.setInverted(false);
+
+		flywheels.setInverted(true);
 	}
-	
-	//If this goes the wrong direction, change the setInverted! Don't use negative!
+
+	// If this goes the wrong direction, change the setInverted! Don't use
+	// negative!
 	public void runFlywheels() {
 		flywheels.set(RobotMap.FLYWHEELS_SHOOT_SPEED);
 	}
-	
+
+	public void reverseFlywheelsForIntake() {
+		flywheels.set(-RobotMap.FLYWHEELS_INTAKE_SPEED);
+	}
+
 	public void runFlywheelsForIntake() {
 		flywheels.set(RobotMap.FLYWHEELS_INTAKE_SPEED);
 	}
-	
+
 	public void stopFlywheels() {
 		flywheels.set(0);
 	}
-	
-    public void initDefaultCommand() {}
-}
 
+	public void initDefaultCommand() {
+	}
+}

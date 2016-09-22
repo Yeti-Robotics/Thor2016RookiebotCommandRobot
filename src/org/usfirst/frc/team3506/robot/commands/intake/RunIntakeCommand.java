@@ -16,10 +16,11 @@ public class RunIntakeCommand extends Command {
 
     protected void initialize() {
     	Robot.intake.runIntake();
+    	Robot.flywheels.runFlywheelsForIntake();
     }
 
     protected void execute() {
-    	Robot.flywheels.runFlywheelsForIntake();
+    	
     }
 
     protected boolean isFinished() {
