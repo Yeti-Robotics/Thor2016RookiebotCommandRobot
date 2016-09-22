@@ -31,7 +31,7 @@ public class RobotMap {
 	public static final int FLYWHEELS_TALON_PORT = 0;
 	public static final double FLYWHEELS_SHOOT_SPEED = 1;
 	public static final double FLYWHEELS_INTAKE_SPEED = 0.15;
-	public static final double FLYWHEELS_TIMETOFULLSPEED = 1;
+	public static final double FLYWHEELS_TIMETOFULLSPEED = 1.25;
 	
 	//Intake constants
 	public static final int INTAKE_BELT_SPIKE_PORT = 3;
